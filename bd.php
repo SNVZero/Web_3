@@ -81,7 +81,7 @@ $bd = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_P
 
 try{
     $stmt = $bd->prepare("INSERT INTO application SET name = ?,email=?,bio=?,dateofbirth =?,gender=?,limbs=?,power1=?,power2=?,power3=?,power4=?");
-    $stmt = execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power1,$power2,$power3,$power4));
+    $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power1,$power2,$power3,$power4));
 }
 catch(PDOException $e){
     print('Error : ' . $e->getMessage());
