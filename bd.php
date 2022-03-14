@@ -85,7 +85,7 @@ if ($errors) {
 }
 $user='u46878';
 $pass='2251704';
-$bd = new PDO('mysql:host=localhost;dbname=u46878',$user,$pass,array(PDO::ATTR_PERSISTENT => true));
+$bd = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_PERSISTENT => true));
 
 try{
     $stmt = $bd->prepare("INSERT INTO application SET name = ?,email=?,bio=?,dateofbirth =?,gender=?,limbs=?,power1=?,power2=?,power3=?,power4=?");
@@ -95,5 +95,5 @@ catch(PDOException $e){
     print('Error : ' . $e->getMessage());
     exit();
 }
-header('Location: ?save=1');
+header('Location: index.html');
 ?>
