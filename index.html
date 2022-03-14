@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
         <title>Задание 3</title>
@@ -15,13 +17,13 @@
             <div class="row">
                 <div class="col">
                     <div class="webform__form d-flex justify-content-center">
-                        <form method="POST">
+                        <form action="bd.php" method="POST">
                             <div>
-                                <input class="webform__form-elem" id="names" type="text" name="names" required
+                                <input class="webform__form-elem" id="names" type="text" name="names" 
                                     placeholder="Имя" required>
                             </div>
                              <div>
-                                <input class="webform__form-elem" id="email" type="email" name="email" required
+                                <input class="webform__form-elem" id="email" type="email" name="email" 
                                         placeholder="E-mail" required>
                             </div>
                             <div>
@@ -36,22 +38,22 @@
                                 <label style="margin-right: 5px;">Пол : </label>
                                 <input type="radio" id="male" name="gender" value="m" required/>
                                 <label for="male" id="male">мужской</label>
-                                <input type="radio" id="female"name="gender" value="f" required />
+                                <input type="radio" id="female"name="gender" value="f"  />
                                 <label for="female" id="female">женский</label>
                             </div>
                             <div class="limbs">
                                 <label>Количество конечностей :</label>
-                                <input type="radio" id="2" name="limbs" value="2" required>
+                                <input type="radio" id="2" name="limbs" value="2" required >
                                 <label for="2" id="2">2</label>
-                                <input type="radio" id="4" name="limbs" value="4" required>
+                                <input type="radio" id="4" name="limbs" value="4" >
                                 <label for="4" id="4">4</label>
-                                <input type="radio" id="8" name="limbs" value="8" required>
+                                <input type="radio" id="8" name="limbs" value="8" >
                                 <label for="8" id="8">8</label>
-                                <input type="radio" id="16" name="limbs" value="16" required>
+                                <input type="radio" id="16" name="limbs" value="16" >
                                 <label for="16" id="16">16</label>
                             </div>
                             <div class="capabilities">
-                                <select name="capabilities" size="2" multiple required>
+                                <select name="capabilities[]" size="2" multiple required>
                                     <option value="s1">бессмертие</option>
                                     <option value="s2">прохождение сквозь стены</option>
                                     <option value="s3">левитация</option>
@@ -64,7 +66,7 @@
                             </div>
 
                             <div>
-                                <input class="webform__form-btn" type="submit" name="send" value="Отправить">
+                                <input class="webform__form-btn" type="submit" name="send" value="Отправить" required>
                             </div>
                         </form>
                     </div>
