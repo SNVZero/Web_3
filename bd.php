@@ -5,14 +5,7 @@ ini_set('display_startup_errors', 0);
 error_reporting(0);
 header('Content-Type: text/html; charset=UTF-8');
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (!empty($_GET['save'])) {
-        print('Спасибо, форма сохранена.');
-    }
-    include('form.html');
-    exit();
-}
-
+try{
 $errors=FALSE;
 if(empty($_POST['names'])){
     print('Введите Имя.<br/>');
@@ -94,7 +87,7 @@ $db = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_P
      print('ТИ долбаеб');
  }
  $name='names';
-try{
+
     $stmt = $db->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,date =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
     $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power2,$power1,$power3,$power4));
     if(!$errors){
@@ -105,5 +98,5 @@ catch(PDOException $e){
     print('Error : ' . $e->getMessage());
     exit();
 } 
-//header('Location: ?save=1');
+header('Location: ?save=1');
 ?>
