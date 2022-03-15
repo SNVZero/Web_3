@@ -1,6 +1,17 @@
 <?php
 
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(0);
 header('Content-Type: text/html; charset=UTF-8');
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    if (!empty($_GET['save'])) {
+        print('Спасибо, форма сохранена.');
+    }
+    include('form.html');
+    exit();
+}
 
 $errors=FALSE;
 if(empty($_POST['names'])){
