@@ -91,11 +91,14 @@ $user='u46878';
 $pass='2251704';
 $bd = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_PERSISTENT => true));
  if(!$errors){
-     pring('ТИ долбаеб');
+     print('ТИ долбаеб');
  }
 try{
-    $stmt = $bd->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,dateofbirth =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
+    $stmt = $bd->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,date =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
     $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power2,$power1,$power3,$power4));
+    if(!$errors){
+        print('ТИ долбаеб');
+    }
 }
 catch(PDOException $e){
     print('Error : ' . $e->getMessage());
