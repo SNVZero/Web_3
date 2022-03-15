@@ -90,7 +90,9 @@ if ($errors) {
 $user='u46878';
 $pass='2251704';
 $bd = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_PERSISTENT => true));
-
+ if(!$errors){
+     pring('ТИ долбаеб');
+ }
 try{
     $stmt = $bd->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,dateofbirth =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
     $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power2,$power1,$power3,$power4));
