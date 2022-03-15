@@ -36,10 +36,14 @@
                             </div>
                             <div class="gender">
                                 <label style="margin-right: 5px;">Пол : </label>
-                                <input type="radio" id="male" name="gender" value="m" required/>
-                                <label for="male" id="male">мужской</label>
-                                <input type="radio" id="female"name="gender" value="f"  />
-                                <label for="female" id="female">женский</label>
+                                <div>
+                                    <input type="radio" id="male" name="gender" value="m" required />
+                                    <label for="male" id="male">мужской</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="female"name="gender" value="f"/>
+                                    <label for="female" id="female">женский</label>
+                                </div>
                             </div>
                             <div class="limbs">
                                 <label>Количество конечностей :</label>
@@ -62,11 +66,11 @@
                             </div>
                             <div class="form__checkbox">
                                 <input class="checkbox__input" type="checkbox" id="userAgreement"  name="agree">
-                                 <label class="checkbox__label" for="userAgreement" name="agree">Отправляя заявку, я даю согласие на<a>обработку своих персональных данных</a>.<span>*</span>   </label>
+                                 <label class="checkbox__label" for="userAgreement">Отправляя заявку, я даю согласие на<a>обработку своих персональных данных</a>.<span>*</span></label>
                             </div>
 
                             <div>
-                                <input class="webform__form-btn" type="submit"  value="Отправить">
+                                <input class="webform__form-btn" type="submit" name="submit" value="Отправить">
                             </div>
                         </form>
                     </div>

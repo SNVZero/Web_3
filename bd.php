@@ -66,11 +66,12 @@ $power1=in_array('s1',$_POST['capabilities']) ? '1' : '0';
 $power2=in_array('s2',$_POST['capabilities']) ? '1' : '0';
 $power3=in_array('s3',$_POST['capabilities']) ? '1' : '0';
 $power3=in_array('s4',$_POST['capabilities']) ? '1' : '0';
-if (empty($_POST['agree'])) {
-    print('Вы не согласились с условиями контракта!<br/>');
-    $errors = TRUE;
+
+if (empty($_POST['bio'])){
+    print('Напишите краткую биографию.<br/>');
+    $errors= TRUE;
 }
-$agree = 'agree';
+
 
 if ($errors) {
     exit();
@@ -80,8 +81,8 @@ $pass='2251704';
 $bd = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_PERSISTENT => true));
 
 try{
-    $stmt = $bd->prepare("INSERT INTO application SET name = ?,email=?,bio=?,dateofbirth =?,gender=?,limbs=?,power1=?,power2=?,power3=?,power4=?");
-    $stmt -> execute($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power1,$power2,$power3,$power4);
+    $stmt = $bd->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,dateofbirth =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
+    $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power2,$power1,$power3,$power4));
 }
 catch(PDOException $e){
     print('Error : ' . $e->getMessage());
