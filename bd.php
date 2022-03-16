@@ -38,7 +38,7 @@ switch($_POST['gender']) {
     }
 };
 
-if (empty($_POST['limbs'])) {
+if (!empty($_POST['limbs'])) {
     print('Укажите количество конечностей.<br/>');
     $errors = TRUE;
 }
@@ -69,7 +69,7 @@ if (empty($_POST['capabilities'])) {
 $power1=in_array('s1',$_POST['capabilities']) ? '1' : '0';
 $power2=in_array('s2',$_POST['capabilities']) ? '1' : '0';
 $power3=in_array('s3',$_POST['capabilities']) ? '1' : '0';
-$power3=in_array('s4',$_POST['capabilities']) ? '1' : '0';
+$power4=in_array('s4',$_POST['capabilities']) ? '1' : '0';
 
 if (empty($_POST['bio'])){
     print('Напишите краткую биографию.<br/>');
@@ -77,22 +77,14 @@ if (empty($_POST['bio'])){
 }
 
 
-if ($errors) {
-    exit();
-}
+
 $user='u46878';
 $pass='2251704';
 $db = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_PERSISTENT => true));
- if(!$errors){
-     print('ТИ долбаеб');
- }
- $name='names';
 
     $stmt = $db->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,date =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
     $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power2,$power1,$power3,$power4));
-    if(!$errors){
-        print('ТИ долбаеб');
-    }
+    
 }
 catch(PDOException $e){
     print('Error : ' . $e->getMessage());

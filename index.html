@@ -17,27 +17,27 @@
             <div class="row">
                 <div class="col">
                     <div class="webform__form d-flex justify-content-center">
-                        <form action="bd.php" method="POST">
+                        <form id="form" class="form__body">
                             <div>
-                                <input class="webform__form-elem" id="names" type="text" name="names" 
-                                    placeholder="Имя" required>
+                                <input class="webform__form-elem form__input _req" id="names" type="text" name="names" 
+                                    placeholder="Имя" >
                             </div>
                              <div>
-                                <input class="webform__form-elem" id="email" type="email" name="email" 
-                                        placeholder="E-mail" required>
+                                <input class="webform__form-elem form__input _req _email" id="email" type="email" name="email" 
+                                        placeholder="E-mail" >
                             </div>
                             <div>
-                                <textarea id="comment" class="webform__form-elem" type="text" name="bio" placeholder="Биография"></textarea>
+                                <textarea id="comment" class="webform__form-elem form__input _req" type="text" name="bio" placeholder="Биография"></textarea>
                             </div>
                             <div class="form_item form-group">
                                 <label for="formDate" style="color: black;">Дата рождения:</label>
-                                <input type="date" class="form_input _req form-control w-50 shadow bg-white rounded" name="dayofbirth" value=""
-                                    required>
+                                <input type="date" class="form_input form__input _req form-control w-50  bg-white rounded" name="dayofbirth" value=""
+                                    >
                             </div>
                             <div class="gender">
                                 <label style="margin-right: 5px;">Пол : </label>
                                 <div>
-                                    <input type="radio" id="male" name="gender" value="m" required />
+                                    <input type="radio" id="male" name="gender" value="m" checked  />
                                     <label for="male" id="male">мужской</label>
                                 </div>
                                 <div>
@@ -47,9 +47,9 @@
                             </div>
                             <div class="limbs">
                                 <label>Количество конечностей :</label>
-                                <input type="radio" id="2" name="limbs" value="2" required >
+                                <input type="radio" id="2" name="limbs" value="2"   >
                                 <label for="2" id="2">2</label>
-                                <input type="radio" id="4" name="limbs" value="4" >
+                                <input type="radio" id="4" name="limbs" value="4" checked >
                                 <label for="4" id="4">4</label>
                                 <input type="radio" id="8" name="limbs" value="8" >
                                 <label for="8" id="8">8</label>
@@ -57,7 +57,7 @@
                                 <label for="16" id="16">16</label>
                             </div>
                             <div class="capabilities">
-                                <select name="capabilities[]" size="2" multiple required>
+                                <select name="capabilities[]" size="2" multiple  required>
                                     <option value="s1">бессмертие</option>
                                     <option value="s2">прохождение сквозь стены</option>
                                     <option value="s3">левитация</option>
@@ -65,7 +65,7 @@
                                 </select>
                             </div>
                             <div class="form__checkbox">
-                                <input class="checkbox__input" type="checkbox" id="userAgreement"  name="agree">
+                                <input class="checkbox__input _req" type="checkbox" id="userAgreement"  name="agree">
                                  <label class="checkbox__label" for="userAgreement">Отправляя заявку, я даю согласие на<a>обработку своих персональных данных</a>.<span>*</span></label>
                             </div>
 
@@ -80,6 +80,6 @@
             </div>
         </div>
     </div>
-   
+   <script src="js/script.js"></script>
 </body>
 </html>
