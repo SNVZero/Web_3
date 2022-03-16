@@ -18,7 +18,7 @@
             });
             if(response.ok){
                 let result = await response.json();
-                formPreview.innerHTML = '';
+                alert(result.massage);
                 form.reset();
                 form.classList.remove('_sending');
             }else{
