@@ -27,7 +27,27 @@
             }
             
         }else{
-            alert('Заполните обязательные поля');
+            let names = document.getElementById('names');
+            let mail = document.getElementById('email');
+            let bio = document.getElementById('comment');
+            let dates = document.getElementById('dates');
+            let cheack = document.getElementById('userAgreement');
+            if(names.value ===''){
+                alert('Введите имя');
+            }    
+            if(emailTest(mail)){
+                alert('Введите почту в правильном формате');
+            }     
+            if(bio.value === ''){
+                alert('Введите биографию');
+            }       
+            if(dates.value=== ''){
+                alert('Введите дату в правильном формате');
+            }
+            if(cheack.checked=== false){
+                alert('Подтвердите согласие на обработку данных');
+            }
+            
         }
         
     }
@@ -69,4 +89,8 @@
 
     function emailTest(input){
         return !/^\w+([\.-]&\w+)*@\w+([\.-]?\w)*(\.\w{2,8})+$/.test(input.value);
+    }
+
+    function dateTest(input){
+        return !/^([0-9]{2})\\.([0-9]{2})\\.([1-2][0-9]{4})$/.test(input.value);
     }
