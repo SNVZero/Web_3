@@ -82,19 +82,19 @@ if($power1 == 1){
 }
 
 if($power2 == 1){
-    $powers2 = 'immortal';
+    $powers2 = 'noclip';
 }else{
     $powers2 = 'no spell';
 }
 
 if($power3 == 1){
-    $powers3 = 'immortal';
+    $powers3 = 'flying';
 }else{
     $powers3 = 'no spell';
 }
 
 if($power4 == 1){
-    $powers4 = 'immortal';
+    $powers4 = 'lazer';
 }else{
     $powers4 = 'no spell';
 }
