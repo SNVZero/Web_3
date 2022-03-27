@@ -104,7 +104,7 @@ $user='u46878';
 $pass='2251704';
 $db = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_PERSISTENT => true));
 
-    $stmt = $db->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,date =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
+    $stmt = $db->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,date =?,gender=?,libs=?,ability1=?,ability2=?,ability3=?,ability4=?");
 
 if( $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$powers1,$powers2,$powers3,$powers4))){
     $massage="Данные успешно сохранены";
