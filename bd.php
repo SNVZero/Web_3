@@ -8,22 +8,22 @@ header('Content-Type: text/html; charset=UTF-8');
 
 $errors=FALSE;
 if(empty($_POST['names'])){
-    
+
     $errors=TRUE;
 }
 if(empty($_POST['email'])){
-    
+
     $errors=TRUE;
 }
 
 if (empty($_POST['dayofbirth'])) {
-  
+
     $errors = TRUE;
 }
 
 
 if(empty($_POST['gender'])){
-  
+
     $errors=TRUE;
 }
 
@@ -62,7 +62,7 @@ switch($_POST['limbs']) {
 };
 
 if (empty($_POST['capabilities'])) {
-   
+
     $errors = TRUE;
 }
 $power1=in_array('s1',$_POST['capabilities']) ? '1' : '0';
@@ -71,10 +71,33 @@ $power3=in_array('s3',$_POST['capabilities']) ? '1' : '0';
 $power4=in_array('s4',$_POST['capabilities']) ? '1' : '0';
 
 if (empty($_POST['bio'])){
-   
+
     $errors= TRUE;
 }
 
+if($power1 == 1){
+    $powers1 = 'immortal';
+}else{
+    $powers1 = 'no spell';
+}
+
+if($power2 == 1){
+    $powers2 = 'immortal';
+}else{
+    $powers2 = 'no spell';
+}
+
+if($power3 == 1){
+    $powers3 = 'immortal';
+}else{
+    $powers3 = 'no spell';
+}
+
+if($power4 == 1){
+    $powers4 = 'immortal';
+}else{
+    $powers4 = 'no spell';
+}
 
 
 $user='u46878';
@@ -82,8 +105,8 @@ $pass='2251704';
 $db = new PDO("mysql:host=localhost;dbname=u46878",$user,$pass,array(PDO::ATTR_PERSISTENT => true));
 
     $stmt = $db->prepare("INSERT INTO application SET name = ?,mail=?,bio=?,date =?,gender=?,libs=?,noclip=?,immortal=?,fly=?,lasers=?");
- 
-if( $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$power2,$power1,$power3,$power4))){
+
+if( $stmt -> execute(array($_POST['names'],$_POST['email'],$_POST['bio'],$_POST['dayofbirth'],$gender,$limbs,$powers1,$powers2,$powers3,$powers4))){
     $massage="Данные успешно сохранены";
 }else{
     $massage="Ошибка";
